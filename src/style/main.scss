@@ -1,0 +1,17 @@
+@use 'reset';
+@use 'icons';
+@use 'fonts';
+@use 'header';
+@import 'variables';
+
+button {
+  background-color: #fff;
+  outline: none;
+  border: none;
+}
+
+.container {
+  max-width: $maxWidthContainer;
+  padding: 0 15px;
+  margin: 0 auto;
+}

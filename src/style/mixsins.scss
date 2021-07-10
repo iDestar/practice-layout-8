@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+@mixin adaptive-value($property, $value-1, $value-2, $value-3) {
+  @media (min-wdth: $md2) {
+    #{$property}: #{$value-1} + px;
+  }
+  @media (min-wdth: $md4) {
+    #{$property}: #{$value-2} + px;
+  }
+  @media (min-wdth: $md4) {
+    #{$property}: #{$value-3} + px;
+  }
+}
+
+@mixin margin-rigth($propety, $value) {
+  #{$propety}: #{value};
+}
