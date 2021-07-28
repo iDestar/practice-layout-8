@@ -2,6 +2,7 @@ import './style/main.scss';
 import './swiper.min.js';
 import './slider.js';
 import './dynamic_adapt.js';
+import catalogFile from './json/products.json';
 
 const check = function isMobile() {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -41,20 +42,44 @@ window.onload = function () {
     } else if (!target.closest('.search-form')) {
       document.querySelector('.search-form').classList.remove('search-form_active');
     }
-  }
-  const header = document.querySelector('.header');
-
-  const callback = function (entries, observer) {
-    if (entries[0].isIntersecting) {
-      header.classList.remove('_scroll');
-    } else {
-      header.classList.add('_scroll');
+    if (target.classList.contains('products__more')) {
+      getProducts(target);
+      e.preventDefault();
     }
-  };
-  const headerObserver = new IntersectionObserver(callback);
-
-  headerObserver.observe(header);
+  }
 };
+
+async function getProducts(btn) {
+  if (!btn.classList.contains('_hold')) {
+    btn.classList.add('_hold');
+    const file = catalogFile;
+    console.log(file);
+    let response = await fetch(file, {
+      method: 'GET',
+    });
+    if (response.ok) {
+      let result = await response.json();
+      loadProducts(result);
+      btn.classList.remove('_hold');
+      btn.remove();
+    } else {
+      alert('Ошибка');
+    }
+  }
+}
+
+const header = document.querySelector('.header');
+
+const callback = function (entries, observer) {
+  if (entries[0].isIntersecting) {
+    header.classList.remove('_scroll');
+  } else {
+    header.classList.add('_scroll');
+  }
+};
+const headerObserver = new IntersectionObserver(callback);
+
+headerObserver.observe(header);
 
 //SlideToggle
 let _slideUp = (target, duration = 500) => {
