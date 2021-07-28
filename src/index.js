@@ -1,10 +1,20 @@
 import './style/main.scss';
+import './swiper.min.js';
+import './slider.js';
+import './dynamic_adapt.js';
 
 const check = function isMobile() {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
     return true;
   }
 };
+
+const burger = document.querySelector('.menu__icon');
+
+burger.addEventListener('click', function () {
+  const menu = document.querySelector('.menu__body');
+  menu.classList.toggle('_active');
+});
 
 function removeClasses(arr, parameter) {
   arr.forEach((el) => {
@@ -32,6 +42,18 @@ window.onload = function () {
       document.querySelector('.search-form').classList.remove('search-form_active');
     }
   }
+  const header = document.querySelector('.header');
+
+  const callback = function (entries, observer) {
+    if (entries[0].isIntersecting) {
+      header.classList.remove('_scroll');
+    } else {
+      header.classList.add('_scroll');
+    }
+  };
+  const headerObserver = new IntersectionObserver(callback);
+
+  headerObserver.observe(header);
 };
 
 //SlideToggle
@@ -229,3 +251,79 @@ data-spollers="768,min" - спойлеры будут работать толь�
 
 Если нужно что бы в блоке открывался болько один слойлер добавляем атрибут data-one-spoller
 */
+
+const input = document.querySelector('.subscribe__input');
+
+function email_test(input) {
+  return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+
+let forms = document.querySelectorAll('form');
+if (forms.length > 0) {
+  for (let index = 0; index < forms.length; index++) {
+    const el = forms[index];
+    el.addEventListener('submit', form_submit);
+  }
+}
+async function form_submit(e) {
+  let btn = e.target;
+  let form = btn.closest('form');
+  let error = form_validate(form);
+  if (form.hasAttribute('data-test') && !form.classList.contains('_error')) {
+    e.preventDefault();
+    form_add_error(input);
+    form_clean(form);
+  } else {
+    form_remove_error(input);
+  }
+}
+
+function form_validate(form) {
+  let error = 0;
+  let form_req = form.querySelectorAll('._req');
+  if (form_req.length > 0) {
+    for (let index = 0; index < form_req.length; index++) {
+      const el = form_req[index];
+    }
+  }
+  return error;
+}
+
+function form_add_error(input) {
+  input.classList.add('_error');
+  input.parentElement.classList.add('_error');
+
+  let input_error = input.parentElement.querySelector('.form__error');
+  if (input_error) {
+    input.parentElement.removeChild(input_error);
+  }
+  let input_error_text = input.getAttribute('data-error');
+  if (input_error_text && input_error_text != '') {
+    input.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + input_error_text + '</div>');
+  }
+}
+function form_remove_error(input) {
+  input.classList.remove('_error');
+  input.parentElement.classList.remove('_error');
+
+  let input_error = input.parentElement.querySelector('.form__error');
+  if (input_error) {
+    input.parentElement.removeChild(input_error);
+  }
+}
+function form_clean(form) {
+  let inputs = form.querySelectorAll('input,textarea');
+  for (let index = 0; index < inputs.length; index++) {
+    const el = inputs[index];
+    el.parentElement.classList.remove('_focus');
+    el.classList.remove('_focus');
+    el.value = el.getAttribute('data-value');
+  }
+  let checkboxes = form.querySelectorAll('.checkbox__input');
+  if (checkboxes.length > 0) {
+    for (let index = 0; index < checkboxes.length; index++) {
+      const checkbox = checkboxes[index];
+      checkbox.checked = false;
+    }
+  }
+}

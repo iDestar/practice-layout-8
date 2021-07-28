@@ -1,0 +1,102 @@
+@import 'variables.scss';
+@import 'mixsins.scss';
+
+.page {
+  // .page__products
+
+  &__products {
+  }
+}
+.products {
+  // .products__container
+
+  &__container {
+  }
+
+  // .products__title
+
+  &__title {
+    @include adaptive-value('font-size', 40, 24, 1);
+  }
+
+  // .products__items
+
+  &__items {
+  }
+
+  // .products__item
+
+  &__item {
+  }
+}
+
+.item-product {
+  // .item-product__label
+
+  &__label {
+    // .item-product__label_sale
+
+    &_sale {
+    }
+  }
+
+  // .item-product__image
+
+  &__image {
+  }
+
+  // .item-product__body
+
+  &__body {
+  }
+
+  // .item-product__content
+
+  &__content {
+  }
+
+  // .item-product__title
+
+  &__title {
+  }
+
+  // .item-product__text
+
+  &__text {
+  }
+
+  // .item-product__prices
+
+  &__prices {
+  }
+
+  // .item-product__price
+
+  &__price {
+    // .item-product__price_old
+
+    &_old {
+    }
+  }
+
+  // .item-product__actions
+
+  &__actions {
+  }
+}
+.actions-product {
+  // .actions-product__body
+
+  &__body {
+  }
+
+  // .actions-product__button
+
+  &__button {
+  }
+
+  // .actions-product__link
+
+  &__link {
+  }
+}

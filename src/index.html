@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <title></title>
   </head>
@@ -84,17 +85,197 @@
                 </div>
               </div>
               <a href="#" class="actions-header__item actions-header__item-user _ibg">
-                <img src="<%=require('/src/img/avatar.jpg')%>" alt="avatar" />
+                <img src="<%=require('/src/img/main-slider/03.jpg')%>" alt="avatar" />
               </a>
             </div>
 
-            <button type="button" class="menu__icon icon-menu"></button>
-            <span></span>
-            <span></span>
-            <span></span>
+            <button type="button" class="menu__icon icon-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
       </div>
     </header>
+    <main class="page">
+      <section class="page__main-slider">
+        <div class="main-slider__container container main-slider">
+          <div class="main-slider__body">
+            <div class="main-slider__content content-main">
+              <h1 class="content-main__title">High-Quality Furniture Just For You</h1>
+              <div class="content-main__text">
+                Our furniture is made from selected and best quality materials that are suitable for your dream home
+              </div>
+              <a href="#" data-da=".main-slider__body,991.98" class="content-main__button btn">Shop Now</a>
+            </div>
+            <div class="main-slider__slider slider-main">
+              <div class="slider-main__controls controls-slider-main">
+                <div class="controls-slider-main__dots"></div>
+                <div class="controls-slider-main__arrows slider-arrows">
+                  <button type="button" class="slider-arrow slider-arrow_prev _icon-arrow-down"></button>
+                  <button type="button" class="slider-arrow slider-arrow_next _icon-arrow-down"></button>
+                </div>
+              </div>
+              <div class="slider-main__body _swiper">
+                <div class="slider-main__wrapper swiper-wrapper">
+                  <div class="slider-main__slide swiper-slide">
+                    <div class="slider-main__image _ibg">
+                      <img src="<%=require('/src/img/main-slider/01.jpg')%>" alt="slider" />
+                    </div>
+                    <a href="#" data-swiper-parralax-opacity="0" data-swiper-parallax-x="-100%" class="slider-main__content">
+                      <div class="slider-main__title">Bohauss</div>
+                      <div class="slider-main__text">Luxury big sofa 2-seat</div>
+                      <div class="slider-main__price _icon-arrow-link">Rp 17.000.000</div>
+                    </a>
+                  </div>
+                  <div class="slider-main__slide swiper-slide">
+                    <div class="slider-main__image _ibg">
+                      <img src="<%=require('/src/img/main-slider/02.jpg')%>" alt="slider" />
+                    </div>
+                    <a href="#" data-swiper-parralax-opacity="0" data-swiper-parallax-x="-100%" class="slider-main__content">
+                      <div class="slider-main__title">Bohauss</div>
+                      <div class="slider-main__text">Luxury big sofa 2-seat</div>
+                      <div class="slider-main__price _icon-arrow-link">Rp 17.000.000</div>
+                    </a>
+                  </div>
+                  <div class="slider-main__slide swiper-slide">
+                    <div class="slider-main__image _ibg">
+                      <img src="<%=require('/src/img/main-slider/03.jpg')%>" alt="slider" />
+                    </div>
+                    <a href="#" data-swiper-parralax-opacity="0" data-swiper-parallax-x="-100%" class="slider-main__content">
+                      <div class="slider-main__title">Bohauss</div>
+                      <div class="slider-main__text">Luxury big sofa 2-seat</div>
+                      <div class="slider-main__price _icon-arrow-link">Rp 17.000.000</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="page__advantges advantges">
+        <div class="advantges__container container">
+          <div class="advantges__item">
+            <div class="advantges__icon">
+              <img src="<%=require('/src/img/advantages/01.svg')%>" alt="advantges" />
+            </div>
+            <h4 class="advantges__title">High Quality</h4>
+            <div class="advantges__text">crafted from top materials</div>
+          </div>
+          <div class="advantges__item">
+            <div class="advantges__icon">
+              <img src="<%=require('/src/img/advantages/02.svg')%>" alt="advantges" />
+            </div>
+            <h4 class="advantges__title">Warrany Protection</h4>
+            <div class="advantges__text">Over 2 years</div>
+          </div>
+          <div class="advantges__item">
+            <div class="advantges__icon">
+              <img src="<%=require('/src/img/advantages/03.svg')%>" alt="advantges" />
+            </div>
+            <h4 class="advantges__title">Free Shipping</h4>
+            <div class="advantges__text">Order over 150 $</div>
+          </div>
+          <div class="advantges__item">
+            <div class="advantges__icon">
+              <img src="<%=require('/src/img/advantages/04.svg')%>" alt="advantges" />
+            </div>
+            <h4 class="advantges__title">24 / 7 Support</h4>
+            <div class="advantges__text">Dedicated support</div>
+          </div>
+        </div>
+      </section>
+      <section class="page__products">
+        <div class="products__container container">
+          <h2 class="products__title _title">Our Products</h2>
+          <div class="products__items">
+            <article class="products__item item-product" data-pid="1">
+              <div class="item-product__label item-product__label_sale">-30%</div>
+              <a href="#" class="item-product__image _ibg">
+                <img src="<%=require('/src/img/products/01.jpg')%>" alt="product" />
+              </a>
+              <div class="item-product__body">
+                <div class="item-product__content">
+                  <h5 class="item-product__title">Syltherine</h5>
+                  <div class="item-product__text">Stylish cafe chair</div>
+                </div>
+                <div class="item-product__prices">
+                  <div class="item-product__price">Rp 2.500.000</div>
+                  <div class="item-product__price item-product__price_old">Rp 3.500.000</div>
+                </div>
+                <div class="item-product__actions actions-product">
+                  <div class="actions-product__body">
+                    <a href="#" class="actions-product__button btn btn_white">Add to cart</a>
+                    <a href="#" class="actions-product__link _icon-share">Share</a>
+                    <a href="#" class="actions-product__link _icon-favorite">Like</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__body">
+          <div class="footer__main">
+            <a href="#" class="footer__logo _footer-title">Funiro.</a>
+            <div class="footer__text">Worldwide furniture store since 2020. We sell over 1000+ branded products on our website</div>
+            <div class="footer__contacts contacts-footer">
+              <a href="#" class="contacts-footer__item _icon-location">Sawojajar Malang, Indonesia</a>
+              <a href="tel:+62894563455" class="contacts-footer__item _icon-phone">+62894563455</a>
+              <a href="www.funiro.com" target="_blank" class="contacts-footer__item">www.funiro.com</a>
+            </div>
+          </div>
+          <div class="footer__menu menu-footer">
+            <div class="menu-footer__column" data-spollers="768,max">
+              <button type="button" data-spoller class="menu-footer__title _footer-title">Menu</button>
+              <ul class="menu-footer__list">
+                <li><a href="#" class="menu-footer__link">Rooms</a></li>
+                <li><a href="#" class="menu-footer__link">Products</a></li>
+                <li><a href="#" class="menu-footer__link">Inspirations</a></li>
+                <li><a href="#" class="menu-footer__link">About Us</a></li>
+                <li><a href="#" class="menu-footer__link">Terms & Policy</a></li>
+              </ul>
+            </div>
+            <div class="menu-footer__column" data-spollers="768,max">
+              <button type="button" data-spoller class="menu-footer__title _footer-title">Account</button>
+              <ul class="menu-footer__list">
+                <li><a href="#" class="menu-footer__link">My Account</a></li>
+                <li><a href="#" class="menu-footer__link">Checkout</a></li>
+                <li><a href="#" class="menu-footer__link">My Cart</a></li>
+                <li><a href="#" class="menu-footer__link">My catalog</a></li>
+              </ul>
+            </div>
+            <div class="menu-footer__column" data-spollers="768,max">
+              <button type="button" data-spoller class="menu-footer__title _footer-title">My catalog</button>
+              <ul class="menu-footer__list">
+                <li><a href="#" class="menu-footer__link">Facebook</a></li>
+                <li><a href="#" class="menu-footer__link">Instagram</a></li>
+                <li><a href="#" class="menu-footer__link">Twitter</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__subscribe subscribe">
+            <div class="subscribe__title _footer-title">Stay Updated</div>
+            <form data-message="subscribe" action="#" class="subscribe__form" data-test>
+              <input
+                autocomplete="off"
+                type="text"
+                name="from[]"
+                data-error="Ошибка"
+                placeholder="Enter your email"
+                class="subscribe__input _req _email"
+              />
+              <button type="submit" class="subscribe__button _icon-send"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
