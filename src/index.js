@@ -49,23 +49,101 @@ window.onload = function () {
   }
 };
 
-async function getProducts(btn) {
+function getProducts(btn) {
   if (!btn.classList.contains('_hold')) {
     btn.classList.add('_hold');
     const file = catalogFile;
-    console.log(file);
-    let response = await fetch(file, {
-      method: 'GET',
-    });
-    if (response.ok) {
-      let result = await response.json();
-      loadProducts(result);
-      btn.classList.remove('_hold');
-      btn.remove();
-    } else {
-      alert('Ошибка');
-    }
+
+    loadProducts(file);
+    btn.classList.remove('_hold');
+    btn.remove();
+  } else {
+    alert('Ошибка');
   }
+}
+
+function loadProducts(data) {
+  const productsItems = document.querySelector('.products__items');
+  data.products.forEach((item) => {
+    const id = item.id;
+    const url = item.url;
+    const img = item.image;
+    const title = item.title;
+    const text = item.text;
+    const price = item.price;
+    const oldPrice = item.priceOld;
+    const share = item.shareUrl;
+    const like = item.likeUrl;
+    const labels = item.labels;
+
+    let productTemplateStart = `<article class="products__item item-product" data-pid="${id}">`;
+    let productTemplateEnd = `</article>`;
+
+    let productTemplateLabels = '';
+
+    if (labels) {
+      let productTemplateLabelStart = `<div class="item-product__labels">`;
+      let productTemplateLabelEnd = `</div>`;
+      let productTemplateLabelContent = '';
+      labels.forEach((el) => {
+        productTemplateLabelContent += `<div class="item-product__label item-product__label_${el.type}">${el.value}</div>`;
+      });
+      productTemplateLabels += productTemplateLabelStart;
+      productTemplateLabels += productTemplateLabelContent;
+      productTemplateLabels += productTemplateLabelEnd;
+    }
+
+    let priductTemplateImage = ` <a href="${url}" class="item-product__image _ibg">
+      <img src="/src/img/products/${img}" alt="${title}" />
+        </a>`;
+
+    let productTemplateBodyStart = `<div class="item-product__body">`;
+    let productTemplateBodyEnd = `</div>`;
+    let productTemplateContent = `<div class="item-product__content">
+      <h5 class="item-product__title">${title}</h5>
+      <div class="item-product__text">${text}</div>
+       </div>`;
+
+    let prductTemplatePrice = ``;
+    let prductTemplatePriceStart = ` <div class="item-product__prices">`;
+    let prductTemplatePriceCurrent = `  <div class="item-product__price">${price}</div>`;
+    let prductTemplatePriceOld = `<div class="item-product__price item-product__price_old">${oldPrice}</div>`;
+    let prductTemplatePriceEnd = `</div>`;
+
+    prductTemplatePrice = prductTemplatePriceStart;
+    prductTemplatePrice += prductTemplatePriceCurrent;
+    if (prductTemplatePriceOld) {
+      prductTemplatePrice += prductTemplatePriceOld;
+    }
+
+    prductTemplatePrice += prductTemplatePriceEnd;
+
+    let productTemplateActions = `
+      <div class="item-product__actions actions-product">
+        <div class="actions-product__body">
+          <a href="#" class="actions-product__button btn btn_white">Add to cart</a>
+          <a href="${share}" class="actions-product__link _icon-share">Share</a>
+          <a href="${like}" class="actions-product__link _icon-favorite">Like</a>
+        </div>
+      </div>`;
+
+    let productTemplateBody = '';
+    productTemplateBody += productTemplateBodyStart;
+    productTemplateBody += productTemplateContent;
+    productTemplateBody += prductTemplatePrice;
+    productTemplateBody += productTemplateActions;
+    productTemplateBody += productTemplateBodyEnd;
+
+    let productTemplate = '';
+
+    productTemplate += productTemplateStart;
+    productTemplate += productTemplateLabels;
+    productTemplate += priductTemplateImage;
+    productTemplate += productTemplateBody;
+    productTemplate += productTemplateEnd;
+
+    productsItems.insertAdjacentHTML('beforeend', productTemplate);
+  });
 }
 
 const header = document.querySelector('.header');

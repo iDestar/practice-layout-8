@@ -20,7 +20,7 @@
 			"labels": [
 				{
 					"type": "sale",
-					"value": "-50%"
+					"value": "-20%"
 				},
 				{
 					"type": "new",
@@ -42,7 +42,12 @@
 				{
 					"type": "sale",
 					"value": "-50%"
+				},
+                {
+					"type": "new",
+					"value": "New"
 				}
+
 			],
 			"image": "07.jpg",
 			"price": "7.000.000",
