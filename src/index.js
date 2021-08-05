@@ -46,6 +46,11 @@ window.onload = function () {
       getProducts(target);
       e.preventDefault();
     }
+    if (target.classList.contains('actions-product__button')) {
+      const productId = target.closest('item-product').dataset.pid;
+      addToCart(targe, productId);
+      e.preventDefault();
+    }
   }
 };
 
@@ -144,6 +149,24 @@ function loadProducts(data) {
 
     productsItems.insertAdjacentHTML('beforeend', productTemplate);
   });
+}
+
+function addToCart(productButton, productId) {
+  if (!productButton.classList.contains('_hold')) {
+    productButton.classList.add('_hold');
+    productButton.classList.add('_fly');
+
+    const cart = document.querySelector('cart-header__icon');
+    const product = document.querySelector(`[data-pid="${productId}"]`);
+    const productImage = document.querySelector('item-product__image');
+
+    const productImgFly = productImage.cloneNode(true);
+
+    const productImgFlyWidth = productImage.offsetWidth;
+    const productImgFlyHeight = productImage.offsetHeight;
+    const productImgFlyTop = productImage.getBoundingClientRect().top;
+    const productImgFlyLeft = productImage.getBoundingClientRect().left;
+  }
 }
 
 const header = document.querySelector('.header');
