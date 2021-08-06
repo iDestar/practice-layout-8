@@ -105,3 +105,10 @@ button {
     }
   }
 }
+
+._flyimg._ibg {
+  opacity: 1;
+  position: fixed;
+  z-index: 100;
+  transition: all 1s ease 0s;
+}

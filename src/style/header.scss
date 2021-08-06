@@ -362,24 +362,97 @@
         color: $orangeColor;
       }
     }
+    span {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -10px;
+      right: -10px;
+      border-radius: 50%;
+      background-color: $orangeColor;
+      color: #fff;
+      font-size: 12px;
+    }
   }
-  span {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -10px;
-    right: -10px;
-    border-radius: 50%;
-    background-color: $orangeColor;
-    color: #fff;
-    font-size: 12px;
-  }
+
   &__body {
+    background: hsl(220, 16%, 96%);
+    border: 1px solid hsl(0, 0%, 88%);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    padding: 15px;
+    width: 300px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0px, 20px);
+    transition: all 0.3s ease 0;
+    @media (max-width: $md2) {
+      top: 50px;
+    }
+    @media (max-width: $md3) {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 100%;
+    }
+    ._active & {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0px, 0px);
+    }
   }
-  &__list {
+}
+
+.cart-header__list {
+  overflow: auto;
+  max-height: 200px;
+  .cart-list__item {
+    display: flex;
+    align-items: flex-start;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .cart-list__title {
+    color: inherit;
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
+    margin-bottom: 5px/16px * 1em;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $orangeColor;
+      }
+    }
+  }
+
+  .cart-list__quantity {
+    font-size: 14px;
+    margin-bottom: 5px/14px * 1em;
+  }
+
+  .cart-list__delete {
+    text-decoration: none;
+    color: hsl(0, 100%, 50%);
+    font-size: 14px;
+  }
+
+  .cart-list__image {
+    flex: 0 0 100px;
+    height: 100px;
+  }
+
+  .cart-list__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
   }
 }
 
