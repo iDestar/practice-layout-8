@@ -1,0 +1,142 @@
+@import 'variables.scss';
+@import 'mixsins.scss';
+
+.page {
+  // .page__furniture
+
+  &__furniture {
+    overflow: hidden;
+  }
+}
+.furniture {
+  @include adaptive-value('padding-bottom', 85, 40, 1);
+  // .furniture__container
+  &__container {
+  }
+
+  // .furniture__label
+
+  &__label {
+    text-align: center;
+    color: $darkGrayColor;
+    line-height: 150%;
+    @include adaptive-value('font-size', 20, 16, 1);
+    &:not(:last-child) {
+      margin-bottom: 8px/20px * 1em;
+    }
+  }
+
+  // .furniture__title
+
+  &__title {
+    @include adaptive-value('font-size', 40, 20, 1);
+    text-align: center;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 32px/40px * 1em;
+  }
+
+  // .furniture__body
+
+  &__body {
+    position: relative;
+    @media (any-hover: none) {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  // .furniture__items
+
+  &__items {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 16px;
+    @media (any-hover: hover) {
+      justify-content: center;
+    }
+  }
+
+  // .furniture__column
+
+  &__column {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px -8px;
+    &:first-child {
+      justify-content: flex-end;
+    }
+  }
+
+  // .furniture__row
+
+  &__row {
+    display: inline-grid;
+    padding: 0px 8px;
+    gap: 16px;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.row {
+  // .row__furinture
+
+  &__furinture {
+    // .row__furinture_left-top
+
+    &_left-top {
+      justify-content: end;
+      align-items: end;
+    }
+
+    // .row__furinture_left-bottom
+
+    &_left-bottom {
+      justify-content: end;
+      align-items: start;
+    }
+
+    // .row__furinture_center
+
+    &_center {
+      display: block;
+      margin: 16px;
+    }
+
+    // .row__furinture_right-top
+
+    &_right-top {
+      align-items: end;
+    }
+
+    // .row__furinture_right-bottom
+
+    &_right-bottom {
+      align-items: start;
+    }
+  }
+}
+.row-furinture {
+  // .row-furinture__item
+
+  &__item {
+    @media (any-hover: hover) {
+      img {
+        transition: all 0.8s ease 0s;
+        filter: grayscale(1);
+      }
+      &:hover {
+        img {
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
+}

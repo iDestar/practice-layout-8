@@ -249,6 +249,12 @@
       backdrop-filter: blur(31px);
     }
   }
+
+  .slider-arrows {
+    @media (max-width: $md2) {
+      display: none;
+    }
+  }
 }
 .controls-slider-main {
   display: flex;

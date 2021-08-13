@@ -10,6 +10,11 @@ const check = function isMobile() {
   }
 };
 
+lightGallery(document.getElementById('lightgallery'), {
+  selector: '.row-furinture__item',
+  speed: 500,
+});
+
 const burger = document.querySelector('.menu__icon');
 
 burger.addEventListener('click', function () {

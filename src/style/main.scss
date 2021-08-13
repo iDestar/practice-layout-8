@@ -6,6 +6,9 @@
 @use 'slider';
 @use 'advantges';
 @use 'products';
+@use 'rooms';
+@use 'tips';
+@use 'furniture';
 @import 'variables';
 
 body {
@@ -32,6 +35,9 @@ button {
 
 ._ibg {
   position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   img {
     position: absolute;
     width: 100%;
@@ -67,6 +73,7 @@ button {
   column-gap: 8px;
 }
 .slider-arrow {
+  pointer-events: auto;
   height: 48px;
   border-radius: 50%;
   background-color: hsla(17, 72%, 65%, 0.534);
@@ -74,9 +81,10 @@ button {
   font-size: 12px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  @media (max-width: $md2) {
+  @media (max-width: $md5) {
     display: none;
   }
+
   // .slider-arrow_prev
 
   &_prev {
