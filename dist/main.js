@@ -519,7 +519,7 @@ function loadProducts(data) {
     }
 
     let priductTemplateImage = ` <a href="${url}" class="item-product__image _ibg">
-      <img src="/src/img/products/${img}" alt="${title}" />
+      <img src="/images/${img}" alt="${title}" />
         </a>`;
 
     let productTemplateBodyStart = `<div class="item-product__body">`;
